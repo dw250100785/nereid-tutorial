@@ -34,7 +34,7 @@
         <ul class="nav nav-pills pull-right">
           <li {% if request.url.endswith('/en_US/') %}class="active"{% endif %}><a href="{{ url_for('nereid.website.home') }}">Home</a></li>
           <li {% if request.url.endswith('/products') %}class="active"{% endif %} ><a href="{{ url_for('product.product.render_list') }}">Products</a></li>
-          {% if request.nereid_user.is_guest_user %}
+          {% if request.is_guest_user %}
           <li {% if request.url.endswith('/login') %}class="active"{% endif %} ><a href="{{ url_for('nereid.website.login') }}">Login</a></li>
           {% else %}
           <li {% if request.url.endswith('/logout') %}class="active"{% endif %} ><a href="{{ url_for('nereid.website.logout') }}">Logout</a></li>

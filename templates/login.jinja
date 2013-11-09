@@ -15,16 +15,16 @@
                     {{ render_field(login_form.email, input_prepend="icon-envelope", placeholder="email@example.com") }}
                     {{ render_field(login_form.password, input_prepend="icon-key", placeholder="Password") }}
                     <button class="btn cont offset2 span8" type="submit" id="sign-in" value="">
-                      <i class="icon-signin"></i>{% trans %} Sign In {% endtrans %}
+                      <i class="icon-signin"></i> Sign In 
                     </button>
                     <div class="row-fluid">
-                      <a href="" class="zocial facebook span6">{% trans %}Login via Facebook{% endtrans %}</a>
-                      <a href="" class="zocial twitter span6">{% trans %}Login via Twitter{% endtrans %}</a>
+                      <a href="" class="zocial facebook span6">Login via Facebook</a>
+                      <a href="" class="zocial twitter span6">Login via Twitter</a>
                     </div>
                 </form>
-                <p>{% trans %}Forgot your password ? {% endtrans %}
+                <p>Forgot your password ? 
                   <a href="{{ url_for('nereid.user.reset_account', next=request.args.get('next', url_for('nereid.website.home'))) }}">
-                  {% trans %}Click here to reset it yourself{% endtrans %}</a>
+                  Click here to reset it yourself</a>
                 </p>
               </div>
               
