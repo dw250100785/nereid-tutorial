@@ -32,8 +32,8 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="{{ url_for('nereid.website.home') }}">Home</a></li>
-          <li><a href="{{ url_for('product.product.render_list') }}">Products</a></li>
+          <li {% if request.url.endswith('/en_US/') %}class="active"{% endif %}><a href="{{ url_for('nereid.website.home') }}">Home</a></li>
+          <li {% if request.url.endswith('/products') %}class="active"{% endif %} ><a href="{{ url_for('product.product.render_list') }}">Products</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
         <h3 class="text-muted">Nereid Tutorial</h3>
