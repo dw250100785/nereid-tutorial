@@ -13,12 +13,12 @@
       {{ render_field(form.confirm, input_prepend="icon-key", placeholder="Password") }}
 
       <button class="btn cont offset2 span8" type="submit" id="sign-in" value="">
-        <i class="icon-signin"></i>{% trans %} Sign Up {% endtrans %}
+        <i class="icon-signin"></i>Sign Up
       </button>
   </form>
-  <p>{% trans %}Already have an account ? {% endtrans %}
+  <p>Already have an account ?
     <a href="{{ url_for('nereid.website.login', next=request.args.get('next', url_for('nereid.website.home'))) }}">
-    {% trans %}Click here to login{% endtrans %}</a>
+    Click here to login</a>
   </p>
 </div>
 {% endblock %}
