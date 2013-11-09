@@ -1,0 +1,63 @@
+{% extends 'base.jinja' %}
+
+{% from '_helpers.jinja' import render_field %}
+
+
+{% block body %}
+ <!--Login Option starts here -->
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span4 offset4">
+            <div class="login margin50" class="canter">
+                <h4> Sign in to Bras Games </h4>
+                <hr>
+                <form method="POST" action="{{ url_for('nereid.website.login') }}" id="login">
+                    {{ render_field(login_form.email, input_prepend="icon-envelope", placeholder="email@example.com") }}
+                    {{ render_field(login_form.password, input_prepend="icon-key", placeholder="Password") }}
+                    <button class="btn cont offset2 span8" type="submit" id="sign-in" value="">
+                      <i class="icon-signin"></i>{% trans %} Sign In {% endtrans %}
+                    </button>
+                    <div class="row-fluid">
+                      <a href="" class="zocial facebook span6">{% trans %}Login via Facebook{% endtrans %}</a>
+                      <a href="" class="zocial twitter span6">{% trans %}Login via Twitter{% endtrans %}</a>
+                    </div>
+                </form>
+                <p>{% trans %}Forgot your password ? {% endtrans %}
+                  <a href="{{ url_for('nereid.user.reset_account', next=request.args.get('next', url_for('nereid.website.home'))) }}">
+                  {% trans %}Click here to reset it yourself{% endtrans %}</a>
+                </p>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+       <!--Login Option Ends  here -->
+{% endblock %}
+
+
+{% block scripts %}
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+
+
+  // Use client side validation on the form
+  $("form#login").validate({
+    errorElement: "span",
+    wrapper: "li",
+    highlight: function(element, errorClass) {
+      $(element).parents("div.control-group").addClass("error");
+    },
+    unhighlight: function(element, errorClass) {
+      $(element).parents("div.control-group").removeClass("error");
+    },
+    submitHandler: function(form) {
+      $("form#login button.cont").button('loading');
+      form.submit();
+    }
+  });
+  $("form#login input[name='email']").rules("add", {
+    email: "#email"
+  });
+});
+</script>
+{% endblock %}
