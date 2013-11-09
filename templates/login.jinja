@@ -4,34 +4,27 @@
 
 
 {% block body %}
- <!--Login Option starts here -->
-      <div class="container-fluid">
-        <div class="row-fluid">
-          <div class="span4 offset4">
-            <div class="login margin50" class="canter">
-                <h4> Sign in to Bras Games </h4>
-                <hr>
-                <form method="POST" action="{{ url_for('nereid.website.login') }}" id="login">
-                    {{ render_field(login_form.email, input_prepend="icon-envelope", placeholder="email@example.com") }}
-                    {{ render_field(login_form.password, input_prepend="icon-key", placeholder="Password") }}
-                    <button class="btn cont offset2 span8" type="submit" id="sign-in" value="">
-                      <i class="icon-signin"></i> Sign In 
-                    </button>
-                    <div class="row-fluid">
-                      <a href="" class="zocial facebook span6">Login via Facebook</a>
-                      <a href="" class="zocial twitter span6">Login via Twitter</a>
-                    </div>
-                </form>
-                <p>Forgot your password ? 
-                  <a href="{{ url_for('nereid.user.reset_account', next=request.args.get('next', url_for('nereid.website.home'))) }}">
-                  Click here to reset it yourself</a>
-                </p>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-       <!--Login Option Ends  here -->
+<!--Login Option starts here -->
+<div class="container-fluid">
+  <div class="row-fluid">
+    <form role="form" 
+        method="POST" action="{{ url_for('nereid.website.login') }}" id="login">	
+      <h4> Sign in to Nereid Demo Store </h4>
+      <hr>
+      {{ render_field(login_form.email, input_prepend="icon-envelope", placeholder="email@example.com") }}
+      {{ render_field(login_form.password, input_prepend="icon-key", placeholder="Password") }}
+      <button class="btn cont offset2 span8" type="submit" id="sign-in" value="">
+        <i class="icon-signin"></i> Sign In 
+      </button>
+    </form>
+    
+    <p>Forgot your password ? 
+      <a href="{{ url_for('nereid.user.reset_account', next=request.args.get('next', url_for('nereid.website.home'))) }}">
+              Click here to reset it yourself</a>
+    </p>
+  </div>
+</div>
+<!--Login Option Ends  here -->
 {% endblock %}
 
 
