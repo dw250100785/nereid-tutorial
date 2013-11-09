@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+  <data>
+
+    <!-- handler to list all products -->
+
+    <record id="products" model="nereid.url_rule">
+
+      <!-- The handler like <language>/products with XML escaping -->
+      <field name="rule">/&lt;language&gt;/products</field>
+
+      <!-- The model_name.method to which this URL should dispatch to -->
+      <field name="endpoint">product.product.render_list</field>
+
+      <!-- Used to define the order in which the URLs will be loaded -->
+      <field name="sequence" eval="210" />
+      
+      <!-- Allow  HTTP GET method to this URL -->
+      <field name="http_method_get" eval="True"/>
+
+      <!-- Add this URL to the default URL map defined in core nereid -->
+      <field name="url_map" ref="nereid.default_url_map" />
+    </record>
+
+
+
+  </data>
+</tryton>

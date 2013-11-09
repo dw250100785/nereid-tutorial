@@ -1,0 +1,24 @@
+{% extends 'base.jinja' %}
+
+{% block body %}
+<table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>List Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in products %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.list_price }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+</table>
+{% endblock %}
