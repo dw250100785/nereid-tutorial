@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 from nereid import Nereid
+from werkzeug.contrib.sessions import FilesystemSessionStore
+from nereid.sessions import Session
 
 CONFIG = dict(
 
@@ -32,6 +34,11 @@ app.config.update(CONFIG)
 
 # Initialise the app, connect to cache and backend
 app.initialise()
+
+# Setup the filesystem cache
+app.session_interface.session_store = FilesystemSessionStore(
+    '/tmp', session_class=Session
+)
 
 
 if __name__ == '__main__':
