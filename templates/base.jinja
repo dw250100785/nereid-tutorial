@@ -40,7 +40,7 @@
           {% if request.is_guest_user %}
           <li {% if request.url.endswith('/login') %}class="active"{% endif %} ><a href="{{ url_for('nereid.website.login') }}">Login</a></li>
           {% else %}
-          <li {% if request.url.endswith('/logout') %}class="active"{% endif %} >{{ request.nereid_user.display_name }}(<a href="{{ url_for('nereid.website.logout') }}">Logout</a>)</li>
+          <li {% if request.url.endswith('/logout') %}class="active"{% endif %} ><span>{{ request.nereid_user.display_name }}(<a href="{{ url_for('nereid.website.logout') }}">Logout</a>)</span></li>
           {% endif %}
         </ul>
         <h3 class="text-muted">Nereid Tutorial</h3>
