@@ -1,0 +1,24 @@
+{% extends 'base.jinja' %}
+
+{% from '_helpers.jinja' import render_field %}
+
+{% block body %}
+<div class="login">
+  <h4> New to Nereid tutorial? Sign Up Now !</h4>
+    <form method="POST" action="{{ url_for('nereid.user.registration') }}" id="registration">
+
+      {{ render_field(form.name, input_prepend="icon-user", placeholder="John Doe") }}
+      {{ render_field(form.email, input_prepend="icon-envelope", placeholder="email@example.com") }}
+      {{ render_field(form.password, input_prepend="icon-key", placeholder="Password") }}
+      {{ render_field(form.confirm, input_prepend="icon-key", placeholder="Password") }}
+
+      <button class="btn cont offset2 span8" type="submit" id="sign-in" value="">
+        <i class="icon-signin"></i>{% trans %} Sign Up {% endtrans %}
+      </button>
+  </form>
+  <p>{% trans %}Already have an account ? {% endtrans %}
+    <a href="{{ url_for('nereid.website.login', next=request.args.get('next', url_for('nereid.website.home'))) }}">
+    {% trans %}Click here to login{% endtrans %}</a>
+  </p>
+</div>
+{% endblock %}
